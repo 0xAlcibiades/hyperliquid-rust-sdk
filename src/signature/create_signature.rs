@@ -25,8 +25,17 @@ pub(crate) fn keccak(x: impl AbiEncode) -> H256 {
     keccak256(x.encode()).into()
 }
 
-pub(crate) fn sign_l1_action(wallet: &LocalWallet, connection_id: H256, is_mainnet: bool) -> Result<Signature> {
-    sign_with_agent(wallet, EthChain::Localhost, if is_mainnet { "a" } else { "b" }, connection_id)
+pub(crate) fn sign_l1_action(
+    wallet: &LocalWallet,
+    connection_id: H256,
+    is_mainnet: bool,
+) -> Result<Signature> {
+    sign_with_agent(
+        wallet,
+        EthChain::Localhost,
+        if is_mainnet { "a" } else { "b" },
+        connection_id,
+    )
 }
 
 pub(crate) fn sign_usd_transfer_action(

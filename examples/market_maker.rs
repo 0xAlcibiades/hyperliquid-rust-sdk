@@ -51,7 +51,7 @@ struct Market {
     // Map of open orders on this market
     resting_bid_order: Option<u64>,
     // The resting bid order if any
-    resting_ask_order: Option<u64>,  // The resting ask order if any
+    resting_ask_order: Option<u64>, // The resting ask order if any
 }
 
 /// State associated with an order outstanding on the book
@@ -544,12 +544,13 @@ async fn main() -> Result<()> {
         .author("0xAlcibiades")
         .version("0.0.1")
         .about("An example market maker for Hyperliquid.")
-        .arg(Arg::new("private_key")
-            .env("PRIVATE_KEY")
-            .required(true)
-            // TODO(Use secrets or another similar crate to ensure this never leaks)
-            .value_parser(clap::value_parser!(Wallet<SigningKey>))
-            .help("Valid private key of the wallet to trade with.")
+        .arg(
+            Arg::new("private_key")
+                .env("PRIVATE_KEY")
+                .required(true)
+                // TODO(Use secrets or another similar crate to ensure this never leaks)
+                .value_parser(clap::value_parser!(Wallet<SigningKey>))
+                .help("Valid private key of the wallet to trade with."),
         )
         .get_matches();
 
