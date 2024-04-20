@@ -96,6 +96,8 @@ impl ExchangeClient {
         for (asset_ind, asset) in meta.universe.iter().enumerate() {
             coin_to_asset.insert(asset.name.clone(), asset_ind as u32);
         }
+        // hack for PURR
+        coin_to_asset.insert("PURR/USDC".to_string(), 10000);
 
         Ok(ExchangeClient {
             wallet,
