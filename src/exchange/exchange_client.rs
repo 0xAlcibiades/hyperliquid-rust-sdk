@@ -26,6 +26,7 @@ use ethers::{
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use log::info;
 
 use super::cancel::ClientCancelRequestCloid;
 
@@ -218,6 +219,7 @@ impl ExchangeClient {
 
         let mut transformed_cancels = Vec::new();
         for cancel in cancels.into_iter() {
+            info!("Asset {}", &cancel.asset);
             let &asset = self
                 .coin_to_asset
                 .get(&cancel.asset)
@@ -258,6 +260,7 @@ impl ExchangeClient {
 
         let mut transformed_cancels: Vec<CancelRequestCloid> = Vec::new();
         for cancel in cancels.into_iter() {
+            info!("Asset {}", &cancel.asset);
             let &asset = self
                 .coin_to_asset
                 .get(&cancel.asset)

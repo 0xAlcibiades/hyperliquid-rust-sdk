@@ -5,6 +5,7 @@ use crate::{
 };
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use log::info;
 use uuid::Uuid;
 
 #[derive(Deserialize, Serialize, Clone, Debug)]
@@ -80,6 +81,7 @@ impl ClientOrderRequest {
                 tpsl: trigger.tpsl,
             }),
         };
+        info!("Asset {}", &self.asset);
         let &asset = coin_to_asset.get(&self.asset).ok_or(Error::AssetNotFound)?;
 
         let cloid = self.cloid.map(uuid_to_hex_string);
