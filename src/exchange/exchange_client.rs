@@ -26,7 +26,7 @@ use ethers::{
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use log::info;
+use tracing::info;
 
 use super::cancel::ClientCancelRequestCloid;
 

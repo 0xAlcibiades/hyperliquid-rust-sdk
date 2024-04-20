@@ -5,7 +5,7 @@ use crate::{
 };
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use log::info;
+use tracing::info;
 use uuid::Uuid;
 
 #[derive(Deserialize, Serialize, Clone, Debug)]

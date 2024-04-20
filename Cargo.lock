@@ -1419,6 +1419,7 @@ dependencies = [
  "thiserror",
  "tokio",
  "tokio-tungstenite",
+ "tracing",
  "uuid 1.7.0",
 ]
 
